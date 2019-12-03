@@ -17,7 +17,12 @@ export class ValueComponent implements OnInit {
   }
 
   private getValues() {
-    this.http.get('http://localhost:5000/api/values').subscribe(value => {
+    localStorage.getItem('token');
+    this.http.get('http://localhost:5000/api/values', {
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem('token')
+      }
+    }).subscribe(value => {
         this.values = value;
       },
       error => console.log(error));
