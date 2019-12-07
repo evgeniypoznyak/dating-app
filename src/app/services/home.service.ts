@@ -1,18 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
-@Component({
-  selector: 'app-value',
-  templateUrl: './value.component.html',
-  styleUrls: ['./value.component.scss']
+@Injectable({
+  providedIn: 'root'
 })
-export class ValueComponent implements OnInit {
-
+export class HomeService {
+  editMode = new Subject<boolean>();
   values: any;
 
-  constructor(private http: HttpClient) { }
-
-  ngOnInit() {
+  constructor(private http: HttpClient) {
     this.getValues();
   }
 
@@ -27,4 +24,5 @@ export class ValueComponent implements OnInit {
       },
       error => console.log(error));
   }
+
 }

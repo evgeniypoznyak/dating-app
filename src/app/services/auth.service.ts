@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { Data } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,10 @@ export class AuthService {
         }
         return false;
       }));
+  }
+
+  register(model: any): Observable<Data> {
+    return this.http.post<Data>(this.baseUrl + 'register', model);
   }
 
 }
