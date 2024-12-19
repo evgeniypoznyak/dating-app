@@ -28,4 +28,10 @@ export class AuthService {
     return this.http.post<Data>(this.baseUrl + 'register', model);
   }
 
+  uploadPicture(file: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('picture', file, file.name);
+    return this.http.post(this.baseUrl + 'upload', formData);
+  }
+
 }

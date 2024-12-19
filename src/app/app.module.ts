@@ -7,20 +7,23 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import { ProfileService } from './services/profile.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileEditComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [ProfileService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
